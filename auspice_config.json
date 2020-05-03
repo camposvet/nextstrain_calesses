@@ -1,0 +1,25 @@
+{
+  "title": "Tutorial Nextstrain build for SARS-CoV-2_tree",
+  "color_options": {
+    "num_date": {"menuItem": "date", "legendTitle": "Sampling date", "type": "continuous"},
+    "country": {"legendTitle":"Country", "type":"discrete"},
+    "state": {"legendTitle":"State", "menuItem":"state", "type":"discrete"}
+  },
+  "geo": [
+    "country",
+    "state"
+  ],
+  "maintainer": [
+    "Fabricio Campos",
+    "https://github.com/camposvet/nextstrain_classes2"
+  ],
+  "filters": [
+    "country",
+    "state"
+  ],
+  "defaults": {
+   "colorBy": "state",
+   "mapTriplicate": false,
+   "geoResolution": "state"
+ }
+}
