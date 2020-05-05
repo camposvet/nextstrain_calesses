@@ -1,0 +1,86 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	align
+	1	ancestral
+	1	export
+	1	filter
+	1	refine
+	1	traits
+	1	translate
+	1	tree
+	8
+
+[Tue May  5 20:25:15 2020]
+Job 7: 
+        Filtering to
+          - excluding strains in config/dropped_strains.txt
+        
+
+[Tue May  5 20:25:16 2020]
+Finished job 7.
+1 of 8 steps (12%) done
+
+[Tue May  5 20:25:16 2020]
+Job 6: 
+        Aligning sequences to config/reference.gb
+          - filling gaps with N
+        
+
+[Tue May  5 20:25:59 2020]
+Finished job 6.
+2 of 8 steps (25%) done
+
+[Tue May  5 20:25:59 2020]
+Job 5: Building tree
+
+[Tue May  5 20:26:01 2020]
+Finished job 5.
+3 of 8 steps (38%) done
+
+[Tue May  5 20:26:01 2020]
+Job 1: 
+        Refining tree
+          - estimate timetree
+          - use opt coalescent timescale
+          - estimate marginal node dates
+          - filter tips more than 4 IQDs from clock expectation
+        
+
+[Tue May  5 20:26:13 2020]
+Finished job 1.
+4 of 8 steps (50%) done
+
+[Tue May  5 20:26:13 2020]
+Job 3: Reconstructing ancestral sequences and mutations
+
+
+[Tue May  5 20:26:13 2020]
+Job 2: Inferring ancestral traits for country state
+
+[Tue May  5 20:26:14 2020]
+Error in rule ancestral:
+    jobid: 3
+    output: results/nt_muts.json
+    shell:
+        
+        augur ancestral             --tree results/tree.nwk             --alignment results/aligned.fasta             --output results/nt_muts.json             --inference joint
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Tue May  5 20:26:14 2020]
+Error in rule traits:
+    jobid: 2
+    output: results/traits.json
+    shell:
+        
+        augur traits             --tree results/tree.nwk             --metadata data/metadata.tsv             --output results/traits.json             --columns country state             --confidence
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/camposvet/workdir/nextstrain_course-master/.snakemake/log/2020-05-05T202515.516793.snakemake.log
